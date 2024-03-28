@@ -23,7 +23,8 @@ void main() async {
     expect(IsolateNameServer.registerPortWithName(port.sendPort, 'test'), true);
     final completer = Completer<String>();
     port.listen((data) async {
-      // Waiting for the background task to finish his work
+      // Waiting for the background task to finish its work
+      print('Listen finished: $data');
       completer.complete(data);
     });
     await Workmanager().initialize(
